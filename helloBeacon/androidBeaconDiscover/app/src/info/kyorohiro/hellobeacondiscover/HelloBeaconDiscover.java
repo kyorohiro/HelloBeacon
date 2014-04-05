@@ -56,9 +56,9 @@ public class HelloBeaconDiscover implements BluetoothAdapter.LeScanCallback {
 		builder.append(Integer.toHexString(0xFF&scanRecord[24]));
 
 		android.util.Log.v("TT","===uuid="+builder.toString());
-		int measuredPower = scanRecord[25];
-		int major = ((scanRecord[26]&0xFF)<<8) & (scanRecord[27]&0xFF);
-		int minor = ((scanRecord[28]&0xFF)<<8) & (scanRecord[29]&0xFF);
+		int major = ((scanRecord[25]&0xFF)<<8) | (scanRecord[26]&0xFF);
+		int minor = ((scanRecord[27]&0xFF)<<8) | (scanRecord[28]&0xFF);
+		int measuredPower = scanRecord[29];
 		android.util.Log.v("TT","===measuredPower="+measuredPower);
 		android.util.Log.v("TT","===major="+major);
 		android.util.Log.v("TT","===minor="+minor);

@@ -1,4 +1,4 @@
-package com.example.info.kyorohiro.hellobeacondiscover;
+package info.kyorohiro.hellobeacondiscover;
 
 
 import net.hetimatan.util.url.PercentEncoder;

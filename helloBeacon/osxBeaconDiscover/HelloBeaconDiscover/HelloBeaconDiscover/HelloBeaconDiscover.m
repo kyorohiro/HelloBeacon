@@ -34,8 +34,12 @@
     
     for(id key in [advertisementData keyEnumerator]) {
         NSLog(@"key=%@,value=%@", key, [advertisementData valueForKey:key]);
-        NSMutableData *advertisement = [advertisementData valueForKey:key];
-        if([advertisement length]>25)
+        id data = [advertisementData valueForKey:key];
+        if(![data isKindOfClass:[NSData class]]) {
+            return;
+        }
+        NSData *advertisement = data;
+        if([advertisement length]>=25)
         {
             Byte* buffer = (Byte*)[advertisement bytes];
             NSMutableString *builder = [[NSMutableString alloc] init];
